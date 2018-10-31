@@ -30,8 +30,15 @@ cc.Class({
         // console.log("isChildClassOf=======>获取当前类型是否是与某个类型相同或者继承与某个类型")
         // this.func6();
 
-        console.log("clear=======>清除Object对象的所有属性")
-        this.func7();
+        // console.log("clear=======>清除Object对象的所有属性")
+        // this.func7();
+         console.log("getPropertyDescriptor=======>清除Object对象的所有属性");
+         this.func8();
+    },
+    func8:function(){
+        let obb = {"a":14,"b":15,"c":function(){alert(3)}};
+        let des = cc.js.getPropertyDescriptor(obb,"a");
+        console.log(des);
     },
     func7:function(){
         let obb = {"a":14,"b":15,"c":function(){alert(3)}};
