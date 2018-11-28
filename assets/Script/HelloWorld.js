@@ -15,6 +15,8 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
+        this.node.getChildByName();//根据名称获取子node
+        let c = this.node.Children;//获取所有子node
         this.gmllabel.string = this.text;
         // console.log("isNumber,isString=======>");
         // this.func1();
@@ -32,8 +34,28 @@ cc.Class({
 
         // console.log("clear=======>清除Object对象的所有属性")
         // this.func7();
-         console.log("getPropertyDescriptor=======>清除Object对象的所有属性");
-         this.func8();
+        //  console.log("getPropertyDescriptor=======>获取Object对应的某个属性的描述");
+        //  this.func8();
+        // console.log("value=======>向Object中动态添加值");
+        //  this.func9();
+        console.log("get=======>仅向object中添加某个属性的getter访问器，用这种方式添加的是只读的");
+        console.log("getset=======>向object中添加某个属性的getter和setter访问器");
+        console.log("set=======>仅向object中添加某个属性的setter访问器，用这种方式添加的是只写的");
+        this.func10();
+    },
+    func10:function(){
+        let b = new cc.Component();
+        console.log(b);
+        cc.js.get(b,"gmlv",(val)=>{return "aaa"});
+        console.log(b);
+        b.gmlv = 14;
+        console.log(b);
+    },
+    func9:function(){
+        let b = new cc.Component();
+        console.log(b);
+        cc.js.value(b,"gmlv",31);
+        console.log(b);
     },
     func8:function(){
         let obb = {"a":14,"b":15,"c":function(){alert(3)}};
